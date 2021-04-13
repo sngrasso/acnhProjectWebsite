@@ -17,6 +17,24 @@ body {
     margin: 0;
 }
 
+
+a:link{
+    color: #0d5750;
+}
+a:visited{
+    color: #0d5750;
+}
+a:hover{
+    color: #FFFAE4;
+}
+/*a:focus{*/
+/*    color:green;*/
+/*}*/
+/*a:active{*/
+/*    color:red;*/
+/*}*/
+
+
 header {
     text-align: center;
     background-color: #FFFAE4;
