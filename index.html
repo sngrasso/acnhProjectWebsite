@@ -36,7 +36,7 @@
             font: 16px sans-serif;
             background: lightsteelblue;
             border-radius: 10px;
-            color: #786B50;
+            color: darkblue;
         }
 
         .white-bg {
@@ -44,6 +44,7 @@
             border: 3px solid #bda480;
             border-radius: 15px;
             overflow: scroll;
+            align-content: center;
         }
     </style>
 </head>
@@ -64,24 +65,30 @@
         <h4>Taking data from Google search trends we can see the volume of people's
             search of "Animal Crossing" throughout time. From the visualization we can
             see how the search activity spikes around the same time a new game is launched.
-            This is especially true in the spike early in 2020.</h4>
+            In comparison to previous games, we can observe the significant spike in search
+            trends around the time the New Horizons game was released around March 2020.</h4>
 
         <script src = "script/trends.js"></script>
         <div id ="vis1" class="white-bg"></div>
 
-        <h4>Final Project for Data Visualization that will look into the rise of
-            popularity in the Nintendo game title Animal Crossing New Horizons. Specifically the
-            traction it's gained throughout the years, the impact of sales, and how the audience
-            responds to the many different animals the game has to offer.</h4>
+        <h4>Besides an increase in search volume, New Horizons has also shown it's title success
+        through its revenue in sales. Looking at how New Horizons compares to other Animal Crossing
+        titles, we can see how New Horizons was able to make more than double the sales from New Leaf.</h4>
         <script src="script/salesbar.js"></script>
         <div id ="vis2" class="white-bg"></div>
 
-        <h3>Final Project for Data Visualization that will look into the rise of
-            popularity in the Nintendo game title Animal Crossing New Horizons. Specifically the
-            traction it's gained throughout the years, the impact of sales, and how the audience
-            responds to the many different animals the game has to offer.</h3>
+        <h4>One of the game's charm points lies within the many characters included in the game
+        for the player to interact with and live on their island with them. With many available there
+        are certain villagers that stand above the rest and it's apparent given the attention they
+        acquire from player communities. In this visualization we look at the estimated search volume
+        of every villager and which one's are more popular than others.</h4>
         <script src="script/bubble.js"></script>
         <div id ="vis3" class="white-bg"></div>
+        <h4>Below is a chord diagram to show the relationship between a character's
+            species along with their personality</h4>
+        <div class="white-bg">
+            <iframe src="chord.html" width="1000" height="800" frameborder="none"></iframe>
+        </div>
 
     </section>
 
@@ -95,5 +102,7 @@
             </div>
         </div>
     </div>
+
+
 </body>
 </html>

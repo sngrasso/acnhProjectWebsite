@@ -7,8 +7,8 @@ function createBarGraph() {
     }).then(function(data){
         console.log(data);
 
-        // FINALLY we were able to process the data
-        // var totalSum = Array.from(d3.rollup(data, v => d3.sum(v, d => d.sales), d => d.publishers));
+        // FINALLY we were able to process the pages
+        // var totalSum = Array.from(d3.rollup(pages, v => d3.sum(v, d => d.sales), d => d.publishers));
         // console.log(totalSum);
         data.sort(function compareNumbers(a, b) { return b.sales - a.sales;});
         var companies = Array.from(data, d => d.publishers);
@@ -40,6 +40,7 @@ function createBarGraph() {
         var xPadding = 325;
         var yPadding = 50;
         var padding = 600 + yPadding;
+        var bottomTitle = padding + 55;
 
         // this is where the magic happens
         var svg = d3.select("#vis2")
@@ -83,6 +84,12 @@ function createBarGraph() {
             .attr("class", "axis")
             .attr("transform", "translate(" + xPadding + "," + yPadding +")")
             .call(yAxis);
+
+        svg.append("text")
+            .attr("transform", "translate(" + ((w / 2) + 155) + "," + bottomTitle +")")
+            .style("text-anchor", "middle")
+            .style("fill", "#786B50")
+            .text("Sales (USD)");
 
         function make_x_gridlines() {
             return d3.axisBottom(xScale)

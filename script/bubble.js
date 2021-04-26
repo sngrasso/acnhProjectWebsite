@@ -66,7 +66,7 @@ function main() {
             .attr('width', width)
             .attr('height', height)
 
-        // bind nodes data to circle elements
+        // bind nodes pages to circle elements
         const elements = svg.selectAll('.bubble')
             .data(nodes, d => d.name)
             .enter()
