@@ -75,3 +75,34 @@ section {
     font-size: 2em;
     margin-top: 30%;
 }
+
+.axis {
+    color: #786B50;
+    font-size: 12px;
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+}
+
+.title {
+    color: #786B50;
+    font-size: 20px;
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+}
+
+.grid line {
+    stroke: lightgrey;
+    stroke-opacity: 0.7;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    stroke-width: 0;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 3px;
+    font: 16px sans-serif;
+    background: lightsteelblue;
+    border-radius: 10px;
+}

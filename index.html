@@ -3,14 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <title>ACNH</title>
+    <style>
+        .axis {
+            color: #786B50;
+            font-size: 12px;
+            font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+        }
+
+        .title {
+            color: #786B50;
+            font-size: 20px;
+            font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+        }
+
+        .grid line {
+            stroke: #786B50;
+            stroke-opacity: 0.3;
+            shape-rendering: crispEdges;
+        }
+
+        .grid path {
+            stroke-width: 0;
+        }
+
+        .tooltip {
+            position: absolute;
+            text-align: center;
+            padding: 3px;
+            font: 16px sans-serif;
+            background: lightsteelblue;
+            border-radius: 10px;
+            color: #786B50;
+        }
+
+        .white-bg {
+            background-color: #FFFAE6;
+            border: 3px solid #bda480;
+            border-radius: 15px;
+            overflow: scroll;
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Looking into the Popularity of Animal Crossing: New Horizons</h1>
         <h2>Stephanie Grasso</h2>
     </header>
-
     <section>
         <h2>What is this?</h2>
         <h3>Final Project for Data Visualization that will look into the rise of
@@ -19,7 +60,31 @@
         responds to the many different animals the game has to offer.</h3>
 
         <h3>&gt <a href="doc/Alpha_Report_04_12_2021.pdf">Alpha Report</a></h3>
+
+        <h4>Taking data from Google search trends we can see the volume of people's
+            search of "Animal Crossing" throughout time. From the visualization we can
+            see how the search activity spikes around the same time a new game is launched.
+            This is especially true in the spike early in 2020.</h4>
+
+        <script src = "script/trends.js"></script>
+        <div id ="vis1" class="white-bg"></div>
+
+        <h4>Final Project for Data Visualization that will look into the rise of
+            popularity in the Nintendo game title Animal Crossing New Horizons. Specifically the
+            traction it's gained throughout the years, the impact of sales, and how the audience
+            responds to the many different animals the game has to offer.</h4>
+        <script src="script/salesbar.js"></script>
+        <div id ="vis2" class="white-bg"></div>
+
+        <h3>Final Project for Data Visualization that will look into the rise of
+            popularity in the Nintendo game title Animal Crossing New Horizons. Specifically the
+            traction it's gained throughout the years, the impact of sales, and how the audience
+            responds to the many different animals the game has to offer.</h3>
+        <script src="script/bubble.js"></script>
+        <div id ="vis3" class="white-bg"></div>
+
     </section>
+
     <div class="centering">
         <div class="sorry">
             <div class="item">
