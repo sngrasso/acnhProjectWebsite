@@ -39,6 +39,9 @@
     .annotation-note-title, text.title {
         font-weight: bold;
     }
+    .source {
+        font-size: 13px;
+    }
 
 </style>
 <svg width="970" height="600"></svg>
@@ -180,7 +183,14 @@
             .attr("transform", "translate(" + ((width/2) + 75) + "," + 30 +")")
             .style("text-anchor", "middle")
             .style("fill", "#786B50")
-            .text("Trending Volume of \"Animal Crossing\" from 2004 - 2021");
+            .text("Interest over Time on Google Searches for \"Animal Crossing\" (2004 - 2021)");
+
+        svg.append("text")
+            .attr("class", "source")
+            .attr("transform", "translate(" + ((width/2) -300) + "," + 590 +")")
+            .style("text-anchor", "middle")
+            .style("fill", "#786B50")
+            .text("Source: Google Trends");
 
 
 

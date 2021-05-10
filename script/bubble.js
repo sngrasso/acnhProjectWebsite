@@ -161,6 +161,13 @@ function main() {
 
         svg.select(".legendSize")
             .call(legendSize);
+
+        svg.append("text")
+            .attr("class", "source")
+            .attr("transform", "translate(" + ((width/2) -300) + "," + 800 +")")
+            .style("text-anchor", "middle")
+            .style("fill", "#786B50")
+            .text("Source: Keyword Surfer");
     });
 }
 

@@ -74,7 +74,7 @@ function createBarGraph() {
 
         svg.append("text")
             .attr("class", "title")
-            .attr("transform", "translate(" + xPadding * 2 + "," + 30 +")")
+            .attr("transform", "translate(" + (xPadding * 2) + "," + 30 +")")
             .style("text-anchor", "middle")
             .style("fill", "#786B50")
             .text("First Week Sales of Animal Crossing Games");
@@ -95,6 +95,13 @@ function createBarGraph() {
             .style("text-anchor", "middle")
             .style("fill", "#786B50")
             .text("Sales (USD)");
+
+        svg.append("text")
+            .attr("class", "source")
+            .attr("transform", "translate(" +((w / 2) - 200) + "," + (bottomTitle + 25)+")")
+            .style("text-anchor", "middle")
+            .style("fill", "#786B50")
+            .text("Source: https://sites.google.com/site/gamedatalibrary/game-search");
 
         function make_x_gridlines() {
             return d3.axisBottom(xScale)
