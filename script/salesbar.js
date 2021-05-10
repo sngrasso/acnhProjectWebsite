@@ -1,9 +1,14 @@
 function createBarGraph() {
     var totalSales = d3.csv("script/data/ac_sales.csv", function (d) {
-        return {
-            publishers: d["Title"],
-            sales: +d["FW"]
-        };
+
+            if(d["Title"] !== "Animal Crossing: New Leaf"
+                && d["Title"] !== "Animal Crossing: New Leaf [Happy Price Selection]"
+                && d["Title"] !== "Animal Crossing: New Leaf - Welcome amiibo"){
+                return {
+                    publishers: d["Title"],
+                    sales: +d["FW"]
+                };
+            }
     }).then(function(data){
         console.log(data);
 

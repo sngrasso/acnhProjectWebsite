@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+    <script src="https://d3js.org/d3-zoom.v2.min.js"></script>
     <title>ACNH</title>
     <style>
         .axis {
@@ -31,12 +32,13 @@
 
         .tooltip {
             position: absolute;
-            text-align: center;
+            text-align: left;
             padding: 3px;
             font: 16px sans-serif;
-            background: lightsteelblue;
+            background: #f2dab3;
             border-radius: 10px;
-            color: darkblue;
+            color: #8D6425;
+            border: solid 2px #8D6425;
         }
 
         .white-bg {
@@ -55,13 +57,15 @@
     </header>
     <section>
         <h2>What is this?</h2>
-        <h3>Final Project for Data Visualization that will look into the rise of
-        popularity in the Nintendo game title Animal Crossing New Horizons. Specifically the
-        traction it's gained throughout the years, the impact of sales, and how the audience
-        responds to the many different animals the game has to offer.</h3>
+        <h3>This is the final project for Data Visualization that will look into the rise of
+        popularity in the Nintendo game title Animal Crossing New Horizons.
+        Specifically it will look into the traction it's gained throughout the years,
+        the impact of sales, and how the audience responds to the many different animals the
+        game has to offer.</h3>
 
         <h3>&gt <a href="doc/Alpha_Report_04_12_2021.pdf">Alpha Report</a></h3>
-
+        <br>
+        <h2>Search Trends:</h2>
         <h4>Taking data from Google search trends we can see the volume of people's
             search of "Animal Crossing" throughout time. From the visualization we can
             see how the search activity spikes around the same time a new game is launched.
@@ -69,21 +73,28 @@
             trends around the time the New Horizons game was released around March 2020.</h4>
 
         <script src = "script/trends.js"></script>
-        <div id ="vis1" class="white-bg"></div>
-
+<!--        <div id ="vis1" class="white-bg"></div>-->
+        <div class="white-bg">
+            <iframe src="test.html" width="1000" height="800" frameborder="none"></iframe>
+        </div>
+        <h2>Sales:</h2>
         <h4>Besides an increase in search volume, New Horizons has also shown it's title success
         through its revenue in sales. Looking at how New Horizons compares to other Animal Crossing
         titles, we can see how New Horizons was able to make more than double the sales from New Leaf.</h4>
         <script src="script/salesbar.js"></script>
         <div id ="vis2" class="white-bg"></div>
 
+        <h2>Character Popularity:</h2>
         <h4>One of the game's charm points lies within the many characters included in the game
         for the player to interact with and live on their island with them. With many available there
         are certain villagers that stand above the rest and it's apparent given the attention they
         acquire from player communities. In this visualization we look at the estimated search volume
-        of every villager and which one's are more popular than others.</h4>
+        of every villager and to look at which one's are more popular than others. In this instance
+        the names of the top 20 villagers with the highest search volume names are on display.</h4>
         <script src="script/bubble.js"></script>
         <div id ="vis3" class="white-bg"></div>
+
+        <h2>Distribution of Personalities and Species:</h2>
         <h4>Below is a chord diagram to show the relationship between a character's
             species along with their personality</h4>
         <div class="white-bg">
@@ -95,10 +106,10 @@
     <div class="centering">
         <div class="sorry">
             <div class="item">
-                <img src="img/Mr._Resetti.png">
+                <img src="img/Isabelle_NH.png">
             </div>
             <div class="item">
-                <p>Sorry we're still under <br> construction...</p>
+                <p>Thanks for stopping by !!</p>
             </div>
         </div>
     </div>

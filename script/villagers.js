@@ -15,7 +15,7 @@ var svg = d3.select("#chart").append("svg")
     .attr("height", (height + margin.top + margin.bottom));
 
 var wrapper = svg.append("g").attr("class", "chordWrapper")
-    .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");;
+    .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");
 
 var outerRadius = Math.min(width, height) / 2  - 100,
     innerRadius = outerRadius * 0.95,
@@ -162,6 +162,13 @@ var chords = wrapper.selectAll("path.chord")
 //Arcs
 g.append("title")
     .text(function(d, i) {return Math.round(d.value) + " villager(s) in " + Names[i];});
+
+svg.append("text")
+    .attr("class", "title")
+    .attr("transform", "translate(" + ((width/2) + 50) + "," + 30 +")")
+    .style("text-anchor", "middle")
+    .style("fill", "#786B50")
+    .text("Chord Diagram Linking Villager Personality Types to Species Type");
 
 //Chords
 chords.append("title")

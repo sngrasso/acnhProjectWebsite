@@ -3,10 +3,10 @@ function main() {
         .attr('class', 'tooltip')
         .style('opacity', 0)
 
-    const width = 950;
+    const width = 1050;
     const height = 900;
 
-    const centre = { x: width/2, y: height/2 };
+    const centre = { x: width/2 - 100, y: height/2 };
 
     // strength to apply to the position forces
     const forceStrength = 0.03;
@@ -80,7 +80,7 @@ function main() {
             .on('mouseover', function(event, d) {
                 tooltip.transition().duration(200).style('opacity', 1)
 
-                tooltip.html("Name: " + d.name + "<br>Personality: " + d.personality + "<br>Search Volume: " + d.volume)
+                tooltip.html("<b>Name:</b> " + d.name + "<br><b>Personality:</b> " + d.personality + "<br><b>Search Volume:</b> " + d.volume)
                     .style('left', (event.pageX + 10) + 'px')
                     .style('top', (event.pageY - 10) + 'px')
             })
@@ -120,8 +120,9 @@ function main() {
             .attr("transform", "translate(850,150)");
 
         var legendOrdinal = d3.legendColor()
-            .shape("path", d3.symbol().type(d3.symbolTriangle).size(150)())
+            .shape("path", d3.symbol().type(d3.symbolCircle).size(150)())
             .shapePadding(10)
+            .title("Personality Types")
             //use cellFilter to hide the "e" cell
             .cellFilter(function(d){ return d.label !== "e" })
             .scale(ordinal);
@@ -135,6 +136,31 @@ function main() {
             .style("text-anchor", "middle")
             .style("fill", "#786B50")
             .text("Most Popular Villagers based on Google Searches");
+
+        var linearSize = d3.scaleLinear().domain([0,10]).range([10, 30]);
+
+        svg.append("g")
+            .attr("class", "legendSize")
+            .attr("transform", "translate(850, 425)");
+
+        var legendSize = d3.legendSize()
+            .scale(radiusScale)
+            .shape('circle')
+            .shapePadding(15)
+            // .labelOffset(20)
+            .title("Search Volume")
+            .cellFilter(function(d){ return d.label !== "0.0" })
+            .orient('vertical');
+
+        svg.append("text")
+            .attr("class", "title")
+            .attr("transform", "translate(" + (width / 2) + "," + 30 +")")
+            .style("text-anchor", "middle")
+            .style("fill", "#786B50")
+            .text("Most Popular Villagers based on Google Searches");
+
+        svg.select(".legendSize")
+            .call(legendSize);
     });
 }
 

@@ -1,4 +1,7 @@
 function createLineChart() {
+    var margin = {top: 20, right: 80, bottom: 30, left: 50},
+        width = 960 - margin.left - margin.right,
+        height = 600 - margin.top - margin.bottom
     const w = 1200;
     const h = 725;
     const xPadding = 125;
@@ -8,6 +11,8 @@ function createLineChart() {
 
     const timeConv = d3.timeParse("%Y-%m");
     const dataset = d3.csv("script/data/multiTimeline.csv");
+
+
 
 
     /* DATA CLEANING */
@@ -26,11 +31,13 @@ function createLineChart() {
         console.log(slices);
 
         /* SCALES */
-        const xScale = d3.scaleTime().range([0,1000]);
-        const yScale = d3.scaleLinear().rangeRound([600, 0]);
+        const xScale = d3.scaleTime().range([0,width - margin.right]);
+        const yScale = d3.scaleLinear().rangeRound([height, 0]);
 
         xScale.domain(d3.extent(data, function(d){
-            return timeConv(d.date)}));
+            console.log(timeConv(d.date));
+            return timeConv(d.date);
+        }));
 
         yScale.domain([(0), d3.max(slices, function(c) {
             return d3.max(c.values, function(d) {
@@ -41,10 +48,14 @@ function createLineChart() {
         /* AXES */
         const yAxis = d3.axisLeft().scale(yScale);
 
-        const xAxis = d3.axisBottom()
-            .ticks(d3.timeDay.every())
-            .tickFormat(d3.timeFormat('%Y'))
-            .scale(xScale);
+        const makeLine = (xx) => d3.line()
+            .x(function(d) { return xx(d.date) + xPadding; })
+            .y(function(d) { return yScale(d.measurement) + yPadding; });
+
+        // const xAxis = d3.axisBottom()
+        //     .ticks(d3.timeDay.every())
+        //     .tickFormat(d3.timeFormat('%Y'))
+        //     .scale(xScale);
 
 
         /* LINES */
@@ -67,21 +78,46 @@ function createLineChart() {
             .attr("class", "grid")
             .attr("transform", "translate(" + xPadding + "," + yPadding +")")
             .call(make_y_gridlines()
-                .tickSize(-1000)
+                .tickSize(-(width - margin.right))
                 .tickFormat("")
             )
 
         /* DRAW AXIS */
-        svg.append("g")
+        const x_axis = svg.append("g")
             .attr("class", "axis")
             .attr("fill", "#786B50")
             .attr("transform", "translate(" + xPadding + "," + padding +")")
-            .call(xAxis);
+            .call(d3.axisBottom(xScale));
 
         svg.append("g")
             .attr("class", "axis")
             .attr("transform", "translate(" + xPadding + "," + yPadding +")")
             .call(yAxis);
+
+        const xAxiss = (g, x) => g
+            .attr("transform", "translate(" + xPadding + "," + (height + margin.top + margin.bottom)  +")")
+            .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))
+
+        function zoomed(event) {
+            var xz = event.transform.rescaleX(xScale);
+            x_axis.call(xAxiss,xz);
+            lines.selectAll("path")
+                .attr("d", d => makeLine(xz)(d.values));
+        }
+
+        const zoom = d3.zoom()
+            .scaleExtent([1, 18])
+            .extent([[margin.left, 0], [width - margin.right, height]])
+            .translateExtent([[margin.left, -Infinity], [width - margin.right, Infinity]])
+            .on("zoom", zoomed);
+            // .extent([[xPadding, 0], [1000, height]])
+            // .translateExtent([[xPadding, -Infinity], [1000, Infinity]])
+            // .on("zoom", zoomed);
+
+        svg.call(zoom)
+            .transition()
+            .duration(100)
+            .call(zoom.scaleTo, 1, [xScale(Date.UTC(2004, 1, 1)), 0]);
 
         /* DRAW LINES */
         const lines = svg.selectAll("lines")
