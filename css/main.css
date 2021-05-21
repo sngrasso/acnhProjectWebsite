@@ -11,7 +11,7 @@ html {
 }
 
 body {
-    /*background-image: url("../img/pattern.jpeg");*/
+    background-image: url("../img/bg.jpeg");
     background-color: #79CAC3;
     color: #018579;
     margin: 0;
@@ -105,4 +105,58 @@ section {
     font: 16px sans-serif;
     background: lightsteelblue;
     border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.source {
+    font-size: 13px;
+}
+.axis {
+    color: #786B50;
+    font-size: 12px;
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+}
+
+.title {
+    color: #786B50;
+    font-size: 20px;
+    font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+}
+
+.grid line {
+    stroke: #786B50;
+    stroke-opacity: 0.3;
+    shape-rendering: crispEdges;
+}
+
+.grid path {
+    stroke-width: 0;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 3px;
+    font: 16px sans-serif;
+    background: #f2dab3;
+    border-radius: 10px;
+    color: #8D6425;
+    border: solid 2px #8D6425;
+}
+
+.white-bg {
+    background-color: #FFFAE6;
+    border: 3px solid #bda480;
+    border-radius: 15px;
+    overflow: scroll;
+    align-content: center;
+}
+
+.zoom {
+    cursor: move;
+    fill: none;
+    pointer-events: all;
 }

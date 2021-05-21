@@ -3,54 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
     <script src="https://d3js.org/d3-zoom.v2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
     <title>ACNH</title>
     <style>
-        .source {
-            font-size: 13px;
-        }
-        .axis {
-            color: #786B50;
-            font-size: 12px;
-            font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+
+        :root {
+            --accent-color: #0E5750;
         }
 
-        .title {
-            color: #786B50;
-            font-size: 20px;
-            font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif;
+        .annotation.xythreshold {
+            cursor: move;
         }
 
-        .grid line {
-            stroke: #786B50;
-            stroke-opacity: 0.3;
-            shape-rendering: crispEdges;
+        .annotation-note-label {
+            font-size: .8em;
+            font-family: 'Lato';
+            color: gray;
         }
 
-        .grid path {
-            stroke-width: 0;
+        .annotation-note-title {
+            font-size: 1em;
+            font-weight: bold;
         }
 
-        .tooltip {
-            position: absolute;
-            text-align: left;
-            padding: 3px;
-            font: 16px sans-serif;
-            background: #f2dab3;
-            border-radius: 10px;
-            color: #8D6425;
-            border: solid 2px #8D6425;
+        .annotation path {
+            stroke: var(--accent-color);
+            fill: none;
         }
 
-        .white-bg {
-            background-color: #FFFAE6;
-            border: 3px solid #bda480;
-            border-radius: 15px;
-            overflow: scroll;
-            align-content: center;
+        .annotation path.connector-arrow,
+        .title text, .annotation text,
+        .annotation.callout.circle .annotation-subject path{
+            fill: var(--accent-color);
         }
+
     </style>
 </head>
 <body>
@@ -68,18 +59,18 @@
 
         <h3>&gt <a href="doc/Alpha_Report_04_12_2021.pdf">Alpha Report</a></h3>
         <br>
+
+        <!--Chart One-->
         <h2>Search Trends:</h2>
         <h4>Taking data from Google search trends we can see the volume of people's
             search of "Animal Crossing" throughout time. From the visualization we can
             see how the search activity spikes around the same time a new game is launched.
             In comparison to previous games, we can observe the significant spike in search
             trends around the time the New Horizons game was released around March 2020.</h4>
-
         <script src = "script/trends.js"></script>
-<!--        <div id ="vis1" class="white-bg"></div>-->
-        <div class="white-bg">
-            <iframe src="test.html" width="1000" height="800" frameborder="none"></iframe>
-        </div>
+        <div id ="vis1" class="white-bg"></div>
+
+        <!--Chart Two-->
         <h2>Sales:</h2>
         <h4>Besides an increase in search volume, New Horizons has also shown it's title success
         through its revenue in sales. Looking at how New Horizons compares to other Animal Crossing
@@ -87,6 +78,7 @@
         <script src="script/salesbar.js"></script>
         <div id ="vis2" class="white-bg"></div>
 
+        <!--Chart Three-->
         <h2>Character Popularity:</h2>
         <h4>One of the game's charm points lies within the many characters included in the game
         for the player to interact with and live on their island with them. With many available there
@@ -97,6 +89,7 @@
         <script src="script/bubble.js"></script>
         <div id ="vis3" class="white-bg"></div>
 
+        <!--Chart Four-->
         <h2>Distribution of Personalities and Species:</h2>
         <h4>Below is a chord diagram to show the relationship between a character's
             species along with their personality. This is to show the range of

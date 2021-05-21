@@ -83,7 +83,7 @@ var matrix = [
     [1,1,0,1,0,5,2,2,1,1,1,4,1,2,1,1,1,1,1,2,2,1,0,1,2,0,3,2,1,2,0,4,4,1,3,0,0,0,0,0,0,0,0,0,0], // Snooty
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,emptyStroke,0,0,0,0,0,0,0,0,0] // Dummy
 ];
-
+console.log(matrix)
 var chord = d3.layout.chord()
     .padding(.02)
     .sortSubgroups(d3.descending) //sort the chords inside an arc from high to low
